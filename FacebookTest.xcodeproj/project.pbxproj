@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D180F0AD9144A6E847F9E9F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB5B7D155A1E4D41B1464CC3 /* libPods.a */; };
 		A641681C179FB8AA00E2B1C7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A641681B179FB8AA00E2B1C7 /* Foundation.framework */; };
 		A641681E179FB8AA00E2B1C7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A641681D179FB8AA00E2B1C7 /* CoreGraphics.framework */; };
 		A6416820179FB8AA00E2B1C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A641681F179FB8AA00E2B1C7 /* UIKit.framework */; };
@@ -21,6 +22,11 @@
 		A641683D179FB8AA00E2B1C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A641681F179FB8AA00E2B1C7 /* UIKit.framework */; };
 		A6416845179FB8AA00E2B1C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6416843179FB8AA00E2B1C7 /* InfoPlist.strings */; };
 		A6416847179FB8AA00E2B1C7 /* FacebookTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6416846179FB8AA00E2B1C7 /* FacebookTestTests.m */; };
+		A6FBD47A179FBCCF0043861A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD479179FBCCF0043861A /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A6FBD47C179FBCE70043861A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD47B179FBCE70043861A /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A6FBD47E179FBCF50043861A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD47D179FBCF50043861A /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A6FBD480179FBCFE0043861A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD47F179FBCFE0043861A /* Security.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		A6FBD482179FBD060043861A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD481179FBD060043861A /* Social.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B653B0CD28F47A19AF2B802 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		A6416818179FB8AA00E2B1C7 /* FacebookTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FacebookTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A641681B179FB8AA00E2B1C7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A641681D179FB8AA00E2B1C7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -53,6 +60,12 @@
 		A6416842179FB8AA00E2B1C7 /* FacebookTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FacebookTestTests-Info.plist"; sourceTree = "<group>"; };
 		A6416844179FB8AA00E2B1C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6416846179FB8AA00E2B1C7 /* FacebookTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookTestTests.m; sourceTree = "<group>"; };
+		A6FBD479179FBCCF0043861A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		A6FBD47B179FBCE70043861A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		A6FBD47D179FBCF50043861A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A6FBD47F179FBCFE0043861A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A6FBD481179FBD060043861A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		FB5B7D155A1E4D41B1464CC3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +73,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6FBD482179FBD060043861A /* Social.framework in Frameworks */,
+				A6FBD480179FBCFE0043861A /* Security.framework in Frameworks */,
+				A6FBD47E179FBCF50043861A /* libsqlite3.dylib in Frameworks */,
+				A6FBD47C179FBCE70043861A /* Accounts.framework in Frameworks */,
+				A6FBD47A179FBCCF0043861A /* AdSupport.framework in Frameworks */,
 				A641681E179FB8AA00E2B1C7 /* CoreGraphics.framework in Frameworks */,
 				A6416820179FB8AA00E2B1C7 /* UIKit.framework in Frameworks */,
 				A641681C179FB8AA00E2B1C7 /* Foundation.framework in Frameworks */,
+				4D180F0AD9144A6E847F9E9F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,6 +105,7 @@
 				A6416840179FB8AA00E2B1C7 /* FacebookTestTests */,
 				A641681A179FB8AA00E2B1C7 /* Frameworks */,
 				A6416819179FB8AA00E2B1C7 /* Products */,
+				0B653B0CD28F47A19AF2B802 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +121,16 @@
 		A641681A179FB8AA00E2B1C7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A6FBD481179FBD060043861A /* Social.framework */,
+				A6FBD47F179FBCFE0043861A /* Security.framework */,
+				A6FBD47D179FBCF50043861A /* libsqlite3.dylib */,
+				A6FBD47B179FBCE70043861A /* Accounts.framework */,
+				A6FBD479179FBCCF0043861A /* AdSupport.framework */,
 				A641681B179FB8AA00E2B1C7 /* Foundation.framework */,
 				A641681D179FB8AA00E2B1C7 /* CoreGraphics.framework */,
 				A641681F179FB8AA00E2B1C7 /* UIKit.framework */,
 				A641683A179FB8AA00E2B1C7 /* XCTest.framework */,
+				FB5B7D155A1E4D41B1464CC3 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,9 +185,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A641684A179FB8AA00E2B1C7 /* Build configuration list for PBXNativeTarget "FacebookTest" */;
 			buildPhases = (
+				2CBC910CBF36423AAA7654A3 /* Check Pods Manifest.lock */,
 				A6416814179FB8AA00E2B1C7 /* Sources */,
 				A6416815179FB8AA00E2B1C7 /* Frameworks */,
 				A6416816179FB8AA00E2B1C7 /* Resources */,
+				B3CF0D5F8CDB455DB68992A2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,6 +271,37 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CBC910CBF36423AAA7654A3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+		B3CF0D5F8CDB455DB68992A2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A6416814179FB8AA00E2B1C7 /* Sources */ = {
@@ -371,12 +430,14 @@
 		};
 		A641684B179FB8AA00E2B1C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B653B0CD28F47A19AF2B802 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FacebookTest/FacebookTest-Prefix.pch";
 				INFOPLIST_FILE = "FacebookTest/FacebookTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -384,12 +445,14 @@
 		};
 		A641684C179FB8AA00E2B1C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B653B0CD28F47A19AF2B802 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FacebookTest/FacebookTest-Prefix.pch";
 				INFOPLIST_FILE = "FacebookTest/FacebookTest-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -454,6 +517,7 @@
 				A641684C179FB8AA00E2B1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A641684D179FB8AA00E2B1C7 /* Build configuration list for PBXNativeTarget "FacebookTestTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +526,7 @@
 				A641684F179FB8AA00E2B1C7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
