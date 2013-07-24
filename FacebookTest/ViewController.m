@@ -6,6 +6,8 @@
 //  Copyright (c) 2013年 Pan Peter. All rights reserved.
 //
 
+// reference: https://www.youtube.com/watch?v=mLuaUtbGvEM#at=322
+
 #import "ViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 
