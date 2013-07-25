@@ -93,7 +93,85 @@
     
 }
 
-- (IBAction)publishStoryButPressed:(id)sender {
+
+- (IBAction)publishStoryForSportButPressed:(id)sender {
+    
+    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+    
+    if([FBDialogs canPresentShareDialogWithParams:params])
+    {
+        
+        
+        id<FBOpenGraphAction> action = (id<FBOpenGraphAction>)[FBGraphObject graphObject];
+        
+        // Attach a book object to the action
+        
+        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+        dataArray[0] = @{@"location":@{@"latitude":@"37.416382", @"longitude":@"-122.152659"}};
+        dataArray[1] = @{@"location":@{@"latitude":@"37.442564", @"longitude":@"-122.164879"}};
+
+        
+        action[@"course"] = @{
+                            @"type": @"fitness.course",
+                            @"fbsdk:create_object": @YES,
+                            //@"url":@"http://apppeterpan.blogspot.tw/2013/03/ios-sdk.html",
+                            @"url":@"http://apppeterpan.blogspot.tw/2013/03/ios-sdk.html",
+                            @"title": @"The Tipping Point",
+                            //@"image": @"http://www.renderready.com/wp-content/uploads/2011/02/the_tipping_point.jpg",
+                           // @"description": @"How Little Things Can Make a Big Difference",
+                            @"data": @{@"distance": @{@"value":@"5.58", @"units":@"km"},
+                                       @"duration":@{@"value":@"1.58", @"units":@"s"},
+                                       @"metrics":dataArray}
+                            };
+        
+        //action[@"course"] = @"http://samples.ogp.me/136756249803614";
+        
+        /*
+        [FBRequestConnection startForPostWithGraphPath:@"me/fitness.runs"
+                                           graphObject:action
+                                     completionHandler:^(FBRequestConnection *connection,
+                                                         id result,
+                                                         NSError *error) {
+                                         // handle the result
+                                         if(error) {
+                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                             [alertView show];
+                                         }
+                                         else
+                                         {
+                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ok" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                             [alertView show];
+
+                                         }
+                                     }];
+        
+        
+        return;
+        */
+        
+        [FBDialogs presentShareDialogWithOpenGraphAction:action
+                                              actionType:@"fitness.runs"
+                                     previewPropertyName:@"course"
+                                                 handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                                     
+                                                     NSLog(@"error %@ %@", error, results);
+                                                     
+                                                     if(error) {
+                                                         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                                         [alertView show];
+                                                     }
+                                                 }];
+    }
+    else
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"please isntall Facebook App" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [alertView show];
+    }
+
+    
+}
+
+- (IBAction)publishStoryForBookButPressed:(id)sender {
     
     FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
     
@@ -107,11 +185,37 @@
         action[@"book"] = @{
                             @"type": @"books.book",
                             @"fbsdk:create_object": @YES,
+                            @"url":@"http://samples.ogp.me/344468272304428",
                             @"title": @"The Tipping Point",
                             @"image": @"http://www.renderready.com/wp-content/uploads/2011/02/the_tipping_point.jpg",
                             @"description": @"How Little Things Can Make a Big Difference",
                             @"data": @{@"isbn": @"0-316-31696-2"}
                             };
+        
+        //action[@"app_id"] = @"332953846789204";
+        
+        /*
+        [FBRequestConnection startForPostWithGraphPath:@"me/books.reads"
+                                           graphObject:action
+                                     completionHandler:^(FBRequestConnection *connection,
+                                                         id result,
+                                                         NSError *error) {
+                                         // handle the result
+                                         if(error) {
+                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                             [alertView show];
+                                         }
+                                         else
+                                         {
+                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ok" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                             [alertView show];
+                                             
+                                         }
+                                     }];
+        return;
+        */
+        
+        // previewPropertyName must be book
         
         [FBDialogs presentShareDialogWithOpenGraphAction:action
                                               actionType:@"books.reads"
