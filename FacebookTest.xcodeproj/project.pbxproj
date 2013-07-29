@@ -22,6 +22,8 @@
 		A641683D179FB8AA00E2B1C7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A641681F179FB8AA00E2B1C7 /* UIKit.framework */; };
 		A6416845179FB8AA00E2B1C7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A6416843179FB8AA00E2B1C7 /* InfoPlist.strings */; };
 		A6416847179FB8AA00E2B1C7 /* FacebookTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A6416846179FB8AA00E2B1C7 /* FacebookTestTests.m */; };
+		A6C0A08317A65239003707AC /* FacebookClient.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C0A08217A65034003707AC /* FacebookClient.m */; };
+		A6D2E8BD17A6183A00DAA5B4 /* track.txt in Resources */ = {isa = PBXBuildFile; fileRef = A6D2E8BC17A6183A00DAA5B4 /* track.txt */; };
 		A6FBD47A179FBCCF0043861A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD479179FBCCF0043861A /* AdSupport.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A6FBD47C179FBCE70043861A /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD47B179FBCE70043861A /* Accounts.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A6FBD47E179FBCF50043861A /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A6FBD47D179FBCF50043861A /* libsqlite3.dylib */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -60,6 +62,9 @@
 		A6416842179FB8AA00E2B1C7 /* FacebookTestTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FacebookTestTests-Info.plist"; sourceTree = "<group>"; };
 		A6416844179FB8AA00E2B1C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A6416846179FB8AA00E2B1C7 /* FacebookTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookTestTests.m; sourceTree = "<group>"; };
+		A6C0A08117A65034003707AC /* FacebookClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacebookClient.h; sourceTree = "<group>"; };
+		A6C0A08217A65034003707AC /* FacebookClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FacebookClient.m; sourceTree = "<group>"; };
+		A6D2E8BC17A6183A00DAA5B4 /* track.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = track.txt; sourceTree = "<group>"; };
 		A6FBD479179FBCCF0043861A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		A6FBD47B179FBCE70043861A /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
 		A6FBD47D179FBCF50043861A /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -145,6 +150,8 @@
 				A6416831179FB8AA00E2B1C7 /* ViewController.m */,
 				A6416833179FB8AA00E2B1C7 /* Images.xcassets */,
 				A6416822179FB8AA00E2B1C7 /* Supporting Files */,
+				A6C0A08117A65034003707AC /* FacebookClient.h */,
+				A6C0A08217A65034003707AC /* FacebookClient.m */,
 			);
 			path = FacebookTest;
 			sourceTree = "<group>";
@@ -152,6 +159,7 @@
 		A6416822179FB8AA00E2B1C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A6D2E8BC17A6183A00DAA5B4 /* track.txt */,
 				A6416823179FB8AA00E2B1C7 /* FacebookTest-Info.plist */,
 				A6416824179FB8AA00E2B1C7 /* InfoPlist.strings */,
 				A6416827179FB8AA00E2B1C7 /* main.m */,
@@ -258,6 +266,7 @@
 			files = (
 				A6416834179FB8AA00E2B1C7 /* Images.xcassets in Resources */,
 				A6416826179FB8AA00E2B1C7 /* InfoPlist.strings in Resources */,
+				A6D2E8BD17A6183A00DAA5B4 /* track.txt in Resources */,
 				A641682F179FB8AA00E2B1C7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6C0A08317A65239003707AC /* FacebookClient.m in Sources */,
 				A6416832179FB8AA00E2B1C7 /* ViewController.m in Sources */,
 				A641682C179FB8AA00E2B1C7 /* AppDelegate.m in Sources */,
 				A6416828179FB8AA00E2B1C7 /* main.m in Sources */,

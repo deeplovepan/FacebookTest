@@ -10,6 +10,7 @@
 
 #import "ViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import "FacebookClient.h"
 
 @interface ViewController () <FBLoginViewDelegate>
 
@@ -28,6 +29,9 @@
                                    (self.view.center.x - (loginView.frame.size.width / 2)),
                                    5);
     [self.view addSubview:loginView];
+    
+    NSLog(@"token %@", [FBSession activeSession].accessTokenData.accessToken);
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -94,60 +98,178 @@
 }
 
 
+- (IBAction)publishStoryForSportWithoutUiButPressed:(id)sender {
+    
+    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+    
+    
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"track.txt" ofType:nil ];
+        
+        NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        
+        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+        
+        NSArray *lineArray = [content componentsSeparatedByString:@"\n"];
+        if(lineArray.count > 0)
+        {
+            NSString *firstLine = [lineArray objectAtIndex:0];
+            NSString *lastLine = [lineArray objectAtIndex:lineArray.count-1];
+            int lineCount = lineArray.count;
+            
+            if([firstLine isEqualToString:@""])
+            {
+                lineCount--;
+            }
+            if([lastLine isEqualToString:@""])
+            {
+                lineCount--;
+            }
+            
+            if(lineCount)
+            {
+                for(NSString *line in lineArray)
+                {
+                    if([line isEqualToString:@""])
+                    {
+                        continue;
+                        
+                    }
+                    NSArray *array = [line componentsSeparatedByString:@","];
+                    
+                    double latitude = [[array objectAtIndex:0] doubleValue];
+                    double longitude = [[array objectAtIndex:1] doubleValue];
+                    
+                    NSDictionary *locationDic = @{@"location":@{@"latitude":[NSString stringWithFormat:@"%f", latitude],
+                                                                @"longitude":[NSString stringWithFormat:@"%f", longitude]}};
+                    [dataArray addObject:locationDic];
+                    
+                }
+            }
+        }
+        
+        id<FBOpenGraphAction> action = (id<FBOpenGraphAction>)[FBGraphObject graphObject];
+        
+    
+        NSMutableDictionary<FBGraphObject> *object = @{
+                                                       //@"type": @"fitness.course",
+                                                       @"url":@"http://apppeterpan.blogspot.tw/2013/03/ios-sdk.html",
+                                                       @"title": @"The Tipping Point",
+                                                       //@"image": @"http://www.renderready.com/wp-content/uploads/2011/02/the_tipping_point.jpg",
+                                                       // @"description": @"How Little Things Can Make a Big Difference",
+                                                       @"data": @{@"distance": @{@"value":@"5.58", @"units":@"km"},
+                                                                  @"duration":@{@"value":@"1.58", @"units":@"s"},
+                                                                  @"metrics":dataArray}
+                                                       };
+        
+    
+        [[FacebookClient sharedClient] createSportFromDataDic:object withCompletionHandler:^(NSDictionary *retDic, NSDictionary *errorDic) {
+            if(retDic)
+            {
+                action[@"course"] = retDic[@"id"];
+                //action[@"fb:explicitly_shared"] = @"1";
+                [FBRequestConnection startForPostWithGraphPath:@"me/fitness.runs"
+                                                   graphObject:action
+                                             completionHandler:^(FBRequestConnection *connection,
+                                                                 id result,
+                                                                 NSError *error) {
+                                                 // handle the result
+                                                 if(error) {
+                                                     
+                                                     NSLog(@"error %@", error);
+                                                     
+                                                     
+                                                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                                     [alertView show];
+                                                 }
+                                                 else
+                                                 {
+                                                     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ok" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                                                     [alertView show];
+                                                     
+                                                 }
+                                             }];
+                
+                
+            }
+            else
+            {
+                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                [alertView show];
+            }
+
+        }];
+         
+    
+}
+
+
 - (IBAction)publishStoryForSportButPressed:(id)sender {
     
     FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
     
     if([FBDialogs canPresentShareDialogWithParams:params])
     {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"track.txt" ofType:nil ];
         
+        NSString *content = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
+        
+        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
+
+        NSArray *lineArray = [content componentsSeparatedByString:@"\n"];
+        if(lineArray.count > 0)
+        {
+            NSString *firstLine = [lineArray objectAtIndex:0];
+            NSString *lastLine = [lineArray objectAtIndex:lineArray.count-1];
+            int lineCount = lineArray.count;
+            
+            if([firstLine isEqualToString:@""])
+            {
+                lineCount--;
+            }
+            if([lastLine isEqualToString:@""])
+            {
+                lineCount--;
+            }
+            
+            if(lineCount)
+            {
+                for(NSString *line in lineArray)
+                {
+                    if([line isEqualToString:@""])
+                    {
+                        continue;
+                        
+                    }
+                    NSArray *array = [line componentsSeparatedByString:@","];
+                    
+                    double latitude = [[array objectAtIndex:0] doubleValue];
+                    double longitude = [[array objectAtIndex:1] doubleValue];
+                    
+                    NSDictionary *locationDic = @{@"location":@{@"latitude":[NSString stringWithFormat:@"%f", latitude],
+                                                                @"longitude":[NSString stringWithFormat:@"%f", longitude]}};
+                    [dataArray addObject:locationDic];
+
+                }
+            }
+        }
         
         id<FBOpenGraphAction> action = (id<FBOpenGraphAction>)[FBGraphObject graphObject];
         
         // Attach a book object to the action
-        
-        NSMutableArray *dataArray = [[NSMutableArray alloc] init];
-        dataArray[0] = @{@"location":@{@"latitude":@"37.416382", @"longitude":@"-122.152659"}};
-        dataArray[1] = @{@"location":@{@"latitude":@"37.442564", @"longitude":@"-122.164879"}};
-
+       
         
         action[@"course"] = @{
                             @"type": @"fitness.course",
                             @"fbsdk:create_object": @YES,
-                            //@"url":@"http://apppeterpan.blogspot.tw/2013/03/ios-sdk.html",
                             @"url":@"http://apppeterpan.blogspot.tw/2013/03/ios-sdk.html",
                             @"title": @"The Tipping Point",
                             //@"image": @"http://www.renderready.com/wp-content/uploads/2011/02/the_tipping_point.jpg",
                            // @"description": @"How Little Things Can Make a Big Difference",
-                            @"data": @{@"distance": @{@"value":@"5.58", @"units":@"km"},
+                            @"data": @{@"distance": @{@"value":@"10.10", @"units":@"km"},
                                        @"duration":@{@"value":@"1.58", @"units":@"s"},
                                        @"metrics":dataArray}
                             };
         
-        //action[@"course"] = @"http://samples.ogp.me/136756249803614";
-        
-        /*
-        [FBRequestConnection startForPostWithGraphPath:@"me/fitness.runs"
-                                           graphObject:action
-                                     completionHandler:^(FBRequestConnection *connection,
-                                                         id result,
-                                                         NSError *error) {
-                                         // handle the result
-                                         if(error) {
-                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-                                             [alertView show];
-                                         }
-                                         else
-                                         {
-                                             UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"ok" message:nil delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
-                                             [alertView show];
-
-                                         }
-                                     }];
-        
-        
-        return;
-        */
         
         [FBDialogs presentShareDialogWithOpenGraphAction:action
                                               actionType:@"fitness.runs"
