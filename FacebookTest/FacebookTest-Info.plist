@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.peterpan.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>com.passionbean.locomote</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -27,14 +27,14 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>fb507702772613239</string>
+				<string>fb307747855933235</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>FacebookAppID</key>
-	<string>507702772613239</string>
+	<string>307747855933235</string>
 	<key>FacebookDisplayName</key>
 	<string>MyPage</string>
 	<key>LSRequiresIPhoneOS</key>

@@ -152,7 +152,7 @@
     
         NSMutableDictionary<FBGraphObject> *object = @{
                                                        //@"type": @"fitness.course",
-                                                       @"url":@"http://apppeterpan.blogspot.tw/2013/03/ios-sdk.html",
+                                                       @"url":@"http://locomo.passionbean.com",
                                                        @"title": @"The Tipping Point",
                                                        //@"image": @"http://www.renderready.com/wp-content/uploads/2011/02/the_tipping_point.jpg",
                                                        // @"description": @"How Little Things Can Make a Big Difference",
@@ -166,7 +166,7 @@
             if(retDic)
             {
                 action[@"course"] = retDic[@"id"];
-                //action[@"fb:explicitly_shared"] = @"1";
+                action[@"fb:explicitly_shared"] = @"1";
                 [FBRequestConnection startForPostWithGraphPath:@"me/fitness.runs"
                                                    graphObject:action
                                              completionHandler:^(FBRequestConnection *connection,
