@@ -100,7 +100,6 @@
 
 - (IBAction)publishStoryForSportWithoutUiButPressed:(id)sender {
     
-    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
     
     
         NSString *path = [[NSBundle mainBundle] pathForResource:@"track.txt" ofType:nil ];
